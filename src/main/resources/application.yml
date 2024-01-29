@@ -20,9 +20,6 @@ fakestoreapi:
   url: https://fakestoreapi.com
 
 spring:
-  #config:
-    #import: "optional:configserver:"
-
   alex-shop-cart:
     datasource:
       url: jdbc:postgresql://localhost:5432/control_compras?serverTimezone=America/El_Salvador

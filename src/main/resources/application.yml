@@ -1,0 +1,75 @@
+server:
+  port: ${APP_PORT:8080}
+  servlet:
+    context-path: ${APP_PATH:/alex-shop-cart} 
+logging.level.org.springframework.security: DEBUG    
+openapi:
+  project-title: Alex Shop Cart
+  project-version: 1.0.0
+  project-description: API de prueba simulando un carro de compras
+  
+jwt:
+  secret: mySecret
+  expiration: 3000000
+
+credenciales-api:
+  usuario: aorellana
+  clave: hola123
+  
+fakestoreapi:
+  url: https://fakestoreapi.com
+
+spring:
+  #config:
+    #import: "optional:configserver:"
+
+  alex-shop-cart:
+    datasource:
+      url: jdbc:postgresql://localhost:5432/control_compras?serverTimezone=America/El_Salvador
+      username: aorellana
+      password: hola123
+      driverClassName: org.postgresql.Driver
+      dialect:  org.hibernate.dialect.PostgreSQLDialect
+      ddl: none
+      hikari:
+        connection-test-query: SELECT 1
+        maximum-pool-size: 10
+        keepalive-time: 100000
+        max-lifetime: 120000
+        minimum-idle: 0
+        idle-timeout: 300000
+        pool-name: controlComprasHikariPool
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database-platform: org.hibernate.dialect.SybaseDialect
+    properties:
+      hibernate:
+##        default_schema: SCHEMA
+       dialect: org.hibernate.dialect.PostgreSQLDialect
+
+app:
+  name: ${APP_NAME:alex-shop-cart}
+  conf:
+    date:
+      format: ${APP_DATE_FORMAT:dd/MM/yyyy HH:mm:ss Z}
+    rest:
+      timeout: ${APP_REST_TIMEOUT:15000}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health
+  info:
+    enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger/index.html
+    enabled: true

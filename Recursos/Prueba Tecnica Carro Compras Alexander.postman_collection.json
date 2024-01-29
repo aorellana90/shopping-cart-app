@@ -1,0 +1,408 @@
+{
+	"info": {
+		"_postman_id": "13364b2b-95d0-4a81-ad86-1f7c36cc3a87",
+		"name": "Prueba Tecnica Carro Compras Alexander",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19295616"
+	},
+	"item": [
+		{
+			"name": "Autenticador",
+			"item": [
+				{
+					"name": "CrearToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"aorellana\",\n    \"password\": \"hola123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/alex-shop-cart/token/generar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alex-shop-cart",
+								"token",
+								"generar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RenovarToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhb3JlbGxhbmEiLCJjcmVhdGVkIjoxNzA2NTY3MzI4OTIyLCJleHAiOjE3MDY1NzAzMjgsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdfQ.eEhc_GMBiqGSefXQvZsBwLfFohexHP7H05PmP_o4eZg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/alex-shop-cart/token/renovar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alex-shop-cart",
+								"token",
+								"renovar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consumo API",
+			"item": [
+				{
+					"name": "FakeProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhb3JlbGxhbmEiLCJjcmVhdGVkIjoxNzA2NTYzNjUyODEzLCJleHAiOjE3MDY1NjY2NTIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdfQ.579OK0QJByIO_m7hoiaGLMY0zMKBn09lsXyivORLfaY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/alex-shop-cart/fakestore/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alex-shop-cart",
+								"fakestore",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FakeProductsById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhb3JlbGxhbmEiLCJjcmVhdGVkIjoxNzA2NTYzNjUyODEzLCJleHAiOjE3MDY1NjY2NTIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdfQ.579OK0QJByIO_m7hoiaGLMY0zMKBn09lsXyivORLfaY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/alex-shop-cart/fakestore/productsById/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alex-shop-cart",
+								"fakestore",
+								"productsById",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pagos",
+			"item": [
+				{
+					"name": "Save",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhb3JlbGxhbmEiLCJjcmVhdGVkIjoxNzA2NTY3MzI4OTIyLCJleHAiOjE3MDY1NzAzMjgsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdfQ.eEhc_GMBiqGSefXQvZsBwLfFohexHP7H05PmP_o4eZg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idOrden\": 1,\n    \"nombres\": \"Edgar Alex\",\n    \"apellidos\": \"Orellana Agui\",\n    \"correo\": \"alex.orellana@gmail.com\",\n    \"telefono\": \"78659658\",\n    \"numeroTarjeta\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/alex-shop-cart/payment/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alex-shop-cart",
+								"payment",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhb3JlbGxhbmEiLCJjcmVhdGVkIjoxNzA2NTY3MzI4OTIyLCJleHAiOjE3MDY1NzAzMjgsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdfQ.eEhc_GMBiqGSefXQvZsBwLfFohexHP7H05PmP_o4eZg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idPago\": 1,\n    \"idOrden\": 1,\n    \"nombres\": \"Edgar Alexander\",\n    \"apellidos\": \"Orellana Aguilar\",\n    \"correo\": \"alex.orellana@gmail.com\",\n    \"telefono\": \"78659658\",\n    \"numeroTarjeta\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/alex-shop-cart/payment/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alex-shop-cart",
+								"payment",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ordenes",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhb3JlbGxhbmEiLCJjcmVhdGVkIjoxNzA2NTYwMTEwODgzLCJleHAiOjE3MDY1NjMxMTAsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdfQ.D64Ce9Ch6XNhhJbaeNg8seF5skuJ4vfVrDw33NNvZpU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/alex-shop-cart/order/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alex-shop-cart",
+								"order",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhb3JlbGxhbmEiLCJjcmVhdGVkIjoxNzA2NTY3MzI4OTIyLCJleHAiOjE3MDY1NzAzMjgsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdfQ.eEhc_GMBiqGSefXQvZsBwLfFohexHP7H05PmP_o4eZg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cliente\": \"Carlos\",\n    \"total\": 22.30,\n    \"estadoOrden\": \"P\",\n    \"metodoPago\": \"EF\",\n    \"estadoPago\": \"P\",\n    \"detallesOrden\": [\n        {\n            \"idProducto\": 2,\n            \"cantidad\": 1,\n            \"precio\": 22.30\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/alex-shop-cart/order/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alex-shop-cart",
+								"order",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhb3JlbGxhbmEiLCJjcmVhdGVkIjoxNzA2NTYxMTk4Njg2LCJleHAiOjE3MDY1NjQxOTgsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdfQ.zE2xqczMTBssPTDTH51kgyLe1XS6ei2EVO3Jk7hQ9BE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/alex-shop-cart/order/findBy/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alex-shop-cart",
+								"order",
+								"findBy",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhb3JlbGxhbmEiLCJjcmVhdGVkIjoxNzA2NTU4ODY5MzQ4LCJleHAiOjE3MDY1NjE4NjksImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdfQ.u37-dyZ23Q2aoeFn8lKFJReQa63K5GDXJ0yNJNHVu98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/alex-shop-cart/order/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alex-shop-cart",
+								"order",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhb3JlbGxhbmEiLCJjcmVhdGVkIjoxNzA2NTYwMTEwODgzLCJleHAiOjE3MDY1NjMxMTAsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdfQ.D64Ce9Ch6XNhhJbaeNg8seF5skuJ4vfVrDw33NNvZpU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idOrden\": 2,\n  \"cliente\": \"Carlos\",\n  \"total\": 22.30,\n  \"estadoOrden\": \"P\",\n  \"metodoPago\": \"Debito\",\n  \"estadoPago\": \"Pendiente\",\n  \"detallesOrden\": [\n    {\n      \"id\": 2,\n      \"idProducto\": 2,\n      \"cantidad\": 1,\n      \"precio\": 22.30\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/alex-shop-cart/order/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alex-shop-cart",
+								"order",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
